@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="main">
+
+    <form action="" method="POST" class="form" id="form-1">
+      <h3 class="heading">Register</h3>
+
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="fullname" class="form-label">Fullname</label>
+        <input id="fullname" name="fullname" type="text" placeholder="Nguyen Le" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" type="text" placeholder="email@domain.com" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" name="password" type="password" placeholder="Please enter password" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password_confirmation" class="form-label">Password confirm</label>
+        <input id="password_confirmation" name="password_confirmation" placeholder="Password confirm" type="password" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="" class="form-label">Gender</label>
+        <div class="form-control gender-box">
+          <input name="gender" type="radio" value='0' id="male"><label for="male">Male</label>
+          <input name="gender" type="radio" value='1' id="fermale"><label for="fermale">fermale</label>
+          <input name="gender" type="radio" value='2' id="other"><label for="other">Other</label>
+        </div>
+        <span class="form-message"></span>
+      </div>
+
+      <button class="form-submit">Send</button>
+    </form>
+
+    <form action="" method="POST" class="form" id="form-2">
+      <h3 class="heading">Login</h3>
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" type="text" placeholder="email@domain.com" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" name="password" type="password" placeholder="Please enter password" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <button class="form-submit">Login</button>
+    </form>
+
+  </div>
+  <script src="validator.js"> </script>
+  <script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+      
+      /* start function Validater */ 
+      Validater({
+        form: '#form-1',
+        formGroupSelector: 'form-group',
+        errorSelecter: '.form-message',
+
+        rules: [
+          Validater.isRequired('#fullname', 'please enter your Fullname'),
+          Validater.isRequired('#email'),
+          Validater.isEmail('#email'),
+          
+          Validater.isRequired('#password'),
+          Validater.isMinLength('#password', 6),
+
+          Validater.isRequired('[name="gender"]', 'please enter a gender'),
+          
+          Validater.isConfirm('#password_confirmation',
+              function() {
+                let passwordElement = document.querySelector('#form-1 #password') 
+                return passwordElement ? passwordElement.value : ''
+              }  
+          ),
+        ],
+        
+        onsubmit: function(data){
+          console.log('doSomething here' , data)
+        }
+
+       })
+
+       Validater({
+        form: '#form-2',
+        formGroupSelector: 'form-group',
+        errorSelecter: '.form-message',
+
+        rules: [
+          Validater.isRequired('#fullname', 'please enter your Fullname'),
+          Validater.isRequired('#email'),
+          Validater.isEmail('#email'),
+          
+          Validater.isRequired('#password'),
+          Validater.isMinLength('#password', 6),
+        ],
+        
+        onsubmit: function(data){
+          console.log('doSomething here' , data)
+        }
+
+       })
+  });
+
+
+  </script>
+      
+</body>
+</html>
