@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="fire.css" />
+  </head>
+  <body>
+    <p>Happy New Year 2018!</p>
+    <div class="option">
+      <button id="Reset-Config">Reset config</button>
+      <div class="">
+        <input type="range" id="Size" value="3" step="0.1" min="1" max="8" />
+        <label for="">Size</label>
+      </div>
+      <div class="">
+        <input
+          type="range"
+          id="Number"
+          value="20"
+          step="0.1"
+          min="10"
+          max="40"
+        />
+        <label for="">Quantity</label>
+      </div>
+      <div class="">
+        <input type="range" id="Fill" value="1" min="1" max="5" />
+        <label for="">Fill</label>
+      </div>
+    </div>
+
+    <audio
+      style="display: none"
+      preload="auto"
+      autoplay
+      id="audio"
+      controls
+      source
+      src="https://aredir.nixcdn.com/Unv_Audio71/HappyNewYear-ABBA-1595921.mp3?st=g1zQ-Zu8tL--3qjPlRIq6w&amp;e=1546353858"
+    ></audio>
+    <script src="fire.js"></script>
+  </body>
+</html>
