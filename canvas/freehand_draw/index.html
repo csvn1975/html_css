@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        * {
+            padding:0;
+            margin:0;
+        }
+
+        html {
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        a, button{
+            float:left;
+            margin: 10px 0px;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 45px;
+            background-color: green;
+            color: white;
+        }
+
+        .button + .button {
+            margin-left : 5px;
+        }
+
+        .container{
+            margin: 10px 10px auto;
+            position: relative;
+        }
+
+        canvas{
+            display: block;
+            clear:left;
+            padding:0;
+            margin:0;
+            border:1px solid grey;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="button" id="clear">Clear</button>
+        <a class="button" id="save">Save</a>
+        <canvas></canvas>
+    </div>
+
+    <script src='./drawLine.js'>
+    </script>
+</body>
+</html>
